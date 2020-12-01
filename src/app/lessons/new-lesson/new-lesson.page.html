@@ -1,0 +1,104 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/lessons/tabs/amherst-done"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">Create Lesson</ion-title>
+        <ion-buttons slot="primary">
+            <ion-button
+                (click)="onCreateLesson()"
+                [disabled]="form.invalid"
+            >
+                <ion-icon
+                    name="checkmark"
+                    slot="icon-only"
+                ></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-nopadding">
+    <form [formGroup]="form">
+        <ion-grid>
+            <ion-row>
+                <ion-col
+                    size-sm="6"
+                    offset-sm="3"
+                >
+                    <ion-item>
+                        <ion-label position="floating">Source</ion-label>
+                        <ion-input
+                            formControlName="source"
+                            type="text"
+                            autocomplete
+                            autocorrect
+                        ></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="form.get('source').invalid && form.get('source').touched">
+                <ion-col
+                    size-sm="6"
+                    offset-sm="3"
+                >
+                    <p>
+                        Source must not be empty and be longer than 150 characters
+                    </p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col
+                    size-sm="6"
+                    offset-sm="3"
+                >
+                    <ion-item>
+                        <ion-label position="floating">Title</ion-label>
+                        <ion-input
+                            formControlName="title"
+                            type="text"
+                            autocomplete
+                            autocorrect
+                        ></ion-input>
+
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col
+                    size-sm="6"
+                    offset-sm="3"
+                >
+                    <ion-item>
+                        <ion-label position="floating">Notes</ion-label>
+                        <ion-textarea
+                            formControlName="notes"
+                            rows="5"
+                        ></ion-textarea>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col
+                    size-sm="6"
+                    offset-sm="3"
+                >
+                    <ion-item>
+                        <ion-label position="floating">Record Date</ion-label>
+                        <ion-datetime
+                            display-format="DD MMM YYYY"
+                            picker-format="YYYY MMM DD"
+                            formControlName="recordDate"
+                            [min]="recDate.toISOString()"
+                            [max]="2030-01-01"
+                        ></ion-datetime>
+
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-button class="ion-margin">Save</ion-button>
+
+    </form>
+</ion-content>

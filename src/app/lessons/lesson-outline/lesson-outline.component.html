@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            {{selectedLesson.source}}: {{selectedLesson.title}}
+        </ion-title>
+        <ion-buttons
+            slot="primary"
+            (click)="onCancel()"
+        >
+            <ion-button>
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-text-center">
+    <ion-grid class="ion-nopadding">
+        <ion-row>
+            <ion-col>
+                <p>{{selectedLesson.notes}}</p>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button
+                    color="primary"
+                    (click)="onSave()"
+                >
+                    Save
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

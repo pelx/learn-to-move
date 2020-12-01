@@ -1,5 +1,7 @@
 {
   "name": "learning-to-move",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

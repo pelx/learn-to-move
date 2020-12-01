@@ -24,3 +24,10 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// 1. indigo-pink 2. deeppurple-amber 3. purple-green 4. pink-bluegrey
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+
+.ion-invalid.ion-touched ion-label {
+    color: var(--ion-color-danger);
+}

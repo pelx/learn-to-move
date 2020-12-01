@@ -1,0 +1,21 @@
+h2 {
+    font-size: 15px;
+    padding: 2px;
+    border-radius: 5px;
+    color: var(--ion-color-primary);
+}
+
+.item {
+    display: display-listitem;
+    align-items: center;
+    border: 1px solid var(--ion-color-primary);
+
+    .space-left{
+        margin-left: 5px;
+    }
+}
+
+ion-card {
+    --background: var(--ion-color-light);
+    --color: var(--ion-color-secondary-tint);
+}

@@ -1,0 +1,70 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button menu="m1"></ion-menu-button>
+        </ion-buttons>
+
+        <ion-title class="ion-text-center">
+            {{ isLoading ? 'Loading' : 'Amherst Training TOC'}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-nopadding">
+    <div
+        class="ion-text-center"
+        *ngIf="isLoading"
+    >
+        <ion-spinner color="primary"></ion-spinner>
+    </div>
+    <ion-segment
+        value="1980"
+        (ionChange)="onFilterUpdate($event)"
+    >
+        <ion-segment-button value="1980">Year 1980</ion-segment-button>
+        <ion-segment-button value="1981">Year 1981</ion-segment-button>
+    </ion-segment>
+    <ion-grid *ngIf="!topics || topics.length<=0">
+        <ion-row>
+            <ion-col
+                size="12"
+                size-sm="8"
+                offset-sm="2"
+                class="ion-text-center"
+            >
+                <p>No content yet...</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="topics.length > 0">
+        <ion-row>
+            <ion-col
+                size="12"
+                size-sm="8"
+                offset-sm="2"
+                class="ion-text-center"
+            >
+                <ion-list *ngFor="let topic of topics">
+                    <ion-card>
+                        <ion-card-header>
+                            <ion-card-title>{{topic.volume}}</ion-card-title>
+                            <ion-card-subtitle>{{topic.title}}</ion-card-subtitle>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <p>{{topic.recordDate}}</p>
+                            <div class="ion-text-light ion-padding">
+                                <ion-button
+                                    fill="clear"
+                                    color="primary"
+                                    [routerLink]="['/lessons/tabs/amherst-toc/']"
+                                >
+                                    More...
+                                </ion-button>
+                            </div>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

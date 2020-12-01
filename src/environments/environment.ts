@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  databaseUrl: 'https://learning-to-move.firebaseio.com/',
+  firebaseAPIKey: 'AIzaSyDMJFMjS-ak1AL7i-T953xh86ePAPDzF44'
 };
 
 /*
